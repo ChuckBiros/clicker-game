@@ -27,3 +27,16 @@ Consultez la section [Documentation utilisateur](documentation-utilisateur.md) p
 ## Historique des commits
 
 Consultez l'historique des commits pour suivre l'évolution du projet et comprendre les modifications apportées à chaque étape du développement.
+
+## Fonctionnalités mises en places
+
+- **Fonctionnalité 1**: Pouvoir récolter des ressources comme du bois, du minerais de fer, du minerais de cuivre.
+  
+- **Fonctionnalité 2**: Permettre la fabrication d'une hache et d'une pioche qui améliore la récolte des ressources.
+  
+- **Fonctionnalité 3**: Le stock de ressource réagi à la création de recettes.
+
+- **Fonctionnalité 4**: Une recette et réalisable un certain nombre de fois (exemple : hache => 1) et est limité par rapport aux ressources disponibles.
+
+
+  
