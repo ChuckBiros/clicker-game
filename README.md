@@ -21,13 +21,8 @@ Consultez la section [Documentation utilisateur](documentation-utilisateur.md) p
 
 ## Difficultés
 
-- **Problème X**: Description courte de la difficulté rencontrée et comment elle a été résolue.
-- **Problème Y**: Description courte de la difficulté rencontrée et comment elle a été résolue.
-
-## Choix de design/Implémentation
-
-- **Choix X**: Justification du choix de conception ou d'implémentation, par exemple, pourquoi un widget spécifique a été utilisé.
-- **Choix Y**: Justification du choix de conception ou d'implémentation, par exemple, pourquoi une structure particulière a été adoptée.
+- **Problème 1**: Problème rencontré au niveau du comportement des boutons, impossible de les désactivés.
+  Résultat : Pas de solution pour le moment.
 
 ## Historique des commits
 
