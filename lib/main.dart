@@ -104,7 +104,7 @@ class _ResourcesPageState extends State<ResourcesPage> {
         ],
       ),
       body: GridView.count(
-        crossAxisCount: 2,
+        crossAxisCount: 4,
         children: [
           ResourceWidget(
               'Bois',
