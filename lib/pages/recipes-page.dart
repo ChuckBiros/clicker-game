@@ -1,6 +1,6 @@
-import 'package:evaluation/main.dart';
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import "package:evaluation/main.dart";
+import "package:flutter/material.dart";
+import "package:provider/provider.dart";
 
 class RecipesPage extends StatefulWidget {
   const RecipesPage({super.key});
@@ -14,71 +14,71 @@ class _RecipesPageState extends State<RecipesPage> {
   // Liste des recettes
   final List<Recipe> recipes = [
     Recipe(
-        'Hache',
-        'Récolter le bois',
+        "Hache",
+        "Récolter le bois",
         [
-          ProductionCost('Bois', 2),
-          ProductionCost('Minerai de fer', 2),
+          ProductionCost("Bois", 2),
+          ProductionCost("Minerai de fer", 2),
         ],
         1),
     Recipe(
-        'Pioche',
-        'Récolter les minerais',
+        "Pioche",
+        "Récolter les minerais",
         [
-          ProductionCost('Bois', 2),
-          ProductionCost('Minerai de fer', 3),
+          ProductionCost("Bois", 2),
+          ProductionCost("Minerai de fer", 3),
         ],
         1),
     Recipe(
-        'Lingot de fer',
-        'Débloque d’autres recettes',
+        "Lingot de fer",
+        "Débloque d'autres recettes",
         [
-          ProductionCost('Minerai de fer', 1),
+          ProductionCost("Minerai de fer", 1),
         ],
         -1),
     Recipe(
-        'Plaque de fer',
-        'Débloque d’autres recettes',
+        "Plaque de fer",
+        "Débloque d'autres recettes",
         [
-          ProductionCost('Minerai de fer', 3),
-          ProductionCost('Minerai de fer', 3),
+          ProductionCost("Minerai de fer", 3),
+          ProductionCost("Minerai de fer", 3),
         ],
         -1),
     Recipe(
-        'Lingot de cuivre',
-        'Débloque d’autres recettes',
+        "Lingot de cuivre",
+        "Débloque d'autres recettes",
         [
-          ProductionCost('Minerai de cuivre', 1),
+          ProductionCost("Minerai de cuivre", 1),
         ],
         -1),
     Recipe(
-        'Tige en métal',
-        'Débloque d’autres recettes',
+        "Tige en métal",
+        "Débloque d'autres recettes",
         [
-          ProductionCost('Lingot de fer', 1),
+          ProductionCost("Lingot de fer", 1),
         ],
         -1),
     Recipe(
-        'Fil électrique',
-        'Débloque d’autres recettes',
+        "Fil électrique",
+        "Débloque d'autres recettes",
         [
-          ProductionCost('Lingot de cuivre', 1),
+          ProductionCost("Lingot de cuivre", 1),
         ],
         -1),
     Recipe(
-        'Mineur',
-        'Permet de transformer automatiquement d’extraire du minerai de fer ou cuivre',
+        "Mineur",
+        "Permet de transformer automatiquement d'extraire du minerai de fer ou cuivre",
         [
-          ProductionCost('Plaque de fer', 10),
-          ProductionCost('Fil électrique', 5),
+          ProductionCost("Plaque de fer", 10),
+          ProductionCost("Fil électrique", 5),
         ],
         1),
     Recipe(
-        'Fonderie',
-        'Permet de transformer automatiquement du minerai de fer ou cuivre en lingot de fer ou cuivre',
+        "Fonderie",
+        "Permet de transformer automatiquement du minerai de fer ou cuivre en lingot de fer ou cuivre",
         [
-          ProductionCost('Fil électrique', 5),
-          ProductionCost('Tige en métal', 8),
+          ProductionCost("Fil électrique", 5),
+          ProductionCost("Tige en métal", 8),
         ],
         1)
   ];
@@ -92,7 +92,7 @@ class _RecipesPageState extends State<RecipesPage> {
     final axeCount = counterNotifier.axeCount;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Recettes'),
+        title: const Text("Recettes"),
       ),
       body: ListView.builder(
         itemCount: recipes.length,
@@ -134,12 +134,12 @@ class RecipeWidget extends StatelessWidget {
       int buildCountLimit = recipe.buildCountLimit;
 
       switch (recipe.name) {
-        case 'Hache':
+        case "Hache":
           if (counterNotifier.axeCount >= buildCountLimit) {
             return false;
           }
           break;
-        case 'Pioche':
+        case "Pioche":
           if (counterNotifier.pickaxeCount >= buildCountLimit) {
             return false;
           }
@@ -148,17 +148,17 @@ class RecipeWidget extends StatelessWidget {
 
       for (var productionCost in productionCosts) {
         switch (productionCost.name) {
-          case 'Bois':
+          case "Bois":
             if (counterNotifier.woodCounter < productionCost.cost) {
               return false;
             }
             break;
-          case 'Minerai de fer':
+          case "Minerai de fer":
             if (counterNotifier.ironCounter < productionCost.cost) {
               return false;
             }
             break;
-          case 'Minerai de cuivre':
+          case "Minerai de cuivre":
             if (counterNotifier.copperCounter < productionCost.cost) {
               return false;
             }
@@ -173,23 +173,23 @@ class RecipeWidget extends StatelessWidget {
 
       for (var productionCost in productionCosts) {
         switch (productionCost.name) {
-          case 'Bois':
+          case "Bois":
             counterNotifier.incrementWoodCounter(-productionCost.cost);
             break;
-          case 'Minerai de fer':
+          case "Minerai de fer":
             counterNotifier.incrementIronCounter(-productionCost.cost);
             break;
-          case 'Minerai de cuivre':
+          case "Minerai de cuivre":
             counterNotifier.incrementCopperCounter(-productionCost.cost);
             break;
         }
       }
 
       switch (recipe.name) {
-        case 'Hache':
+        case "Hache":
           counterNotifier.incrementAxeCount(1);
           break;
-        case 'Pioche':
+        case "Pioche":
           counterNotifier.incrementPickaxeCount(1);
           break;
       }
@@ -199,16 +199,12 @@ class RecipeWidget extends StatelessWidget {
       margin: const EdgeInsets.all(8),
       child: Column(
         children: [
-          Visibility(
-            visible: !manufacturable(recipe),
-            child: const Icon(Icons.block),
-          ),
           ListTile(
             title: Text(recipe.name),
             subtitle: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Description: ${recipe.description}'),
+                Text("Description: ${recipe.description}"),
                 Column(
                   children:
                       List.generate(recipe.productionCosts.length, (index) {
@@ -216,13 +212,13 @@ class RecipeWidget extends StatelessWidget {
                       children: [
                         Row(
                           children: [
-                            const Text('Ingredients : '),
+                            const Text("Ingredients : "),
                             Text(recipe.productionCosts[index].name),
                           ],
                         ),
                         Row(
                           children: [
-                            const Text('Coût : '),
+                            const Text("Coût : "),
                             Text(recipe.productionCosts[index].cost.toString()),
                           ],
                         )
@@ -232,11 +228,13 @@ class RecipeWidget extends StatelessWidget {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    manufacturable(recipe)
-                        ? incrementIngredientsCount(recipe)
-                        : '';
+                    !manufacturable(recipe)
+                        ? null
+                        : incrementIngredientsCount(recipe);
                   },
-                  child: const Text('Produire'),
+                  child: !manufacturable(recipe)
+                      ? const Icon(Icons.block)
+                      : const Text("Produire"),
                 ),
               ],
             ),
