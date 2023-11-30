@@ -163,6 +163,8 @@ class RecipeWidget extends StatelessWidget {
               return false;
             }
             break;
+          default:
+            return false;
         }
       }
       return true;
